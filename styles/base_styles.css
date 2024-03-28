@@ -1,0 +1,285 @@
+:root 
+{
+    --colour-shade1: #91C4F2;
+    --colour-shade2: #8CA0D7;
+    --colour-shade3: #9D79BC;
+    --colour-shade4: #A14DA0;
+    --colour-shade5: #53356B;
+    --colour-shade6: #1F2041;
+    --colour-white: #FFFFFF;
+    --colour-white-tint: #CCCCCC;
+    --colour-black: #000000;
+    --colour-black-tint: #333333;
+
+    --colour-card-base: var(--colour-shade2);
+    --colour-section-base: var(--colour-shade6);
+    --colour-background-bottom: var(--colour-shade4);
+    --colour-background-top: var(--colour-shade5);
+    --colour-light-text: var(--colour-shade1);
+    --colour-dark-text: var(--colour-black);
+    --colour-tint-text: var(--colour-shade4);
+
+    --tilt-angle: 10deg;
+    --tile-ratio: 0.17632698070846497347109038686862; /*=tan(10deg)*/
+    --tile-ratio: calc(tan(var(--tilt-angle)));
+}
+
+body
+{
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+
+    font-family: "Lexend", sans-serif;
+}
+
+h1,h2,h3
+{
+    margin-top: 32px;
+    margin-bottom: 32px;
+}
+h4,h5,h6
+{
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+p
+{
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+h1
+{
+    font-size: 48px;
+}
+h2
+{
+    font-size: 40px;
+}
+h3
+{
+    font-size: 32px;
+}
+h4
+{
+    font-size: 24px;
+}
+h5
+{
+    font-size: 20px;
+}
+h6
+{
+    font-size: 16px;
+}
+p
+{
+    font-size: 16px;
+}
+
+section
+{
+    margin: 0px;
+    border: 0px;
+    padding: 16px;
+
+    background: var(--colour-section-base);
+}
+
+div.card-container
+{
+    margin-top: 24px;
+    margin-bottom: 16px;
+}
+div.card-container > div.title
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+div.card-container > div.title > h3
+{
+    margin-top: 0px;
+    margin-bottom: 0px;
+
+    color: var(--colour-shade1);
+}
+div.card-container > div.card-slider
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+div.card-container > div.card-slider > div.view
+{
+    flex-grow: 1;
+    overflow: hidden;
+}
+div.card-container > div.card-slider > div.slit
+{
+    width: 32px;
+    background: var(--colour-section-base);
+    z-index: 10;
+}
+div.card-container > div.card-slider > div.slit.left
+{
+    margin-left: -16px;
+    box-shadow: 8px 0px 8px -8px #000000;
+}
+div.card-container > div.card-slider > div.slit.right
+{
+    margin-right: -16px;
+    box-shadow: -8px 0px 8px -8px #000000;
+}
+div.card-container > div.card-slider > div.view > div.contents
+{
+    width: min-content;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    column-gap: 10px;
+}
+div.card-container > div.card-slider > div.view > div.contents > div.card
+{
+    padding-top: 48px;
+    padding-bottom: 48px;
+
+    width: 176px;
+}
+div.card-container > div.card-slider > div.view > div.contents > div.card > a.backing
+{
+    padding: 8px;
+
+    display: block;
+
+    background: var(--colour-card-base);
+}
+div.card-container > div.card-slider > div.view > div.contents > div.card > a.backing > img
+{
+    aspect-ratio: calc(2.0 / 3.0);
+    width: 100%;
+}
+div.card-container > div.card-slider > div.view > div.contents > div.card > a.backing > div.bar
+{
+    background: var(--colour-black-tint);
+    height: 16px;
+}
+div.card-container > div.card-slider > div.view > div.contents > div.card > a.backing > div.bar > div
+{
+    background: var(--colour-white);
+}
+
+#background
+{
+    width: 100vw;
+    height: 100vh;
+    
+    position: fixed;
+    z-index: -100;
+
+    background: var(--colour-background-top);
+    background: linear-gradient(0deg, var(--colour-background-bottom) 0%, var(--colour-background-top) 100%);
+}
+
+#application
+{
+    margin-left: auto;
+    margin-right: auto;
+
+    width: 100%;
+    height: 100%;
+
+    max-width: 1280px;
+}
+
+body[loggedIn] .show-when-logged-out
+{
+    display: none;
+}
+
+body[loggedOut] .show-when-logged-in
+{
+    display: none;
+}
+
+*[hidden]
+{
+    display: none;
+}
+
+@media only screen and (max-width: 600px)
+{
+
+}
+@media only screen and (min-width: 600px)
+{
+
+}
+@media only screen and (min-width: 768px)
+{
+
+}
+@media only screen and (min-width: 992px)
+{
+
+}
+@media only screen and (min-width: 1200px)
+{
+
+}
+
+@media (prefers-reduced-motion: no-preference)
+{
+
+}
+@media (prefers-reduced-motion: reduce)
+{
+
+}
+
+@media (prefers-contrast: no-preference) 
+{
+
+}
+@media (prefers-contrast: low)
+{
+
+}
+@media (prefers-contrast: high) 
+{
+
+}
+@media (prefers-contrast: forced) 
+{
+
+}
+
+@media (prefers-color-scheme: dark)
+{
+
+}
+@media (prefers-color-scheme: light)
+{
+
+}
+
+@media (prefers-reduced-data: no-preference)
+{
+
+}
+@media (prefers-reduced-data: reduce) 
+{
+
+}
+
+@media (prefers-reduced-transparency: no-preference)
+{
+
+}
+@media (prefers-reduced-transparency: reduce)
+{
+
+}
