@@ -1,10 +1,11 @@
 <?php 
+include_once __DIR__.'/../functions/session.php';
+include_once __DIR__.'/../functions/connect.php';
+include_once __DIR__.'/card.php';
 define('CARD_TYPE_MEDIA', 1);
 
-function createCardContainer(mysqli $connection, string $name, string $moreLabel, string $moreLink, string $query, int $cardType) : void
+function createCardContainer(string $name, string $moreLabel, string $moreLink, string $query, int $cardType) : void
 {
-    include_once __DIR__.'/card.php';
-
     ?>
         <div class="card-container">
             <div class="title">
@@ -25,7 +26,7 @@ function createCardContainer(mysqli $connection, string $name, string $moreLabel
                                     break;
                             }
 
-                            $result = $connection->query($query);
+                            $result = CONNECTION->query($query);
                             
                             if ($result === false)
                             {
@@ -46,7 +47,7 @@ function createCardContainer(mysqli $connection, string $name, string $moreLabel
                                         for ($i = count($resultList) - 1; $i >= 0; $i--)
                                         {
                                             $row = $resultList[$i];
-                                            createCard('#', 'images/'.$row[2].'.jpg', $row[1], $row[3]);
+                                            createCard('media.php?id='.$row[0], 'images/'.$row[2].'.jpg', $row[1], $row[3]);
                                         }
                                         break;
                                 }
