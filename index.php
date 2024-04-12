@@ -9,16 +9,13 @@ include_once __DIR__.'/segments/navigation_bar.php';
 </head>
 <body>
     <div id="background"></div>
-    <div id="application">
+    <main>
         <?php createNavigationBar('index.php'); ?>
-        <div class="gap"></div>
-        <section>
-            <?php
-                createCardContainer('Most Liked Movies', 'More', '#', 'INNER JOIN media_standalone MS ON MS.MediaID = M.MediaID ORDER BY (SELECT AVG(R.Rating) FROM ratings R WHERE R.AboutMediaID = M.MediaID)', CARD_TYPE_MEDIA);
-                createCardContainer('Least Liked Movies', 'More', '#', 'INNER JOIN media_standalone MS ON MS.MediaID = M.MediaID ORDER BY (SELECT AVG(R.Rating) FROM ratings R WHERE R.AboutMediaID = M.MediaID) DESC', CARD_TYPE_MEDIA);
-            ?>
-        </section>
-        <?php include __DIR__.'/segments/footer.php' ?>
-    </div>
+        <?php
+            createCardContainer('Most Liked Movies', 'More', '#', 'INNER JOIN media_standalone MS ON MS.MediaID = M.MediaID ORDER BY (SELECT AVG(R.Rating) FROM ratings R WHERE R.AboutMediaID = M.MediaID)', CARD_TYPE_MEDIA);
+            createCardContainer('Least Liked Movies', 'More', '#', 'INNER JOIN media_standalone MS ON MS.MediaID = M.MediaID ORDER BY (SELECT AVG(R.Rating) FROM ratings R WHERE R.AboutMediaID = M.MediaID) DESC', CARD_TYPE_MEDIA);
+        ?>
+    </main>
+    <?php include __DIR__.'/segments/footer.php' ?>
 </body>
 </html>
