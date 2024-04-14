@@ -9,9 +9,10 @@ function createCardContainer(string $name, string $moreLabel, string $moreLink, 
     ?>
         <div class="card-container">
             <div class="title">
-                <h3><?php echo $name ?></h3>
+                <h1><?php echo $name ?></h1>
                 <a href="<?php echo $moreLink ?>">
-                    <h4><?php echo $moreLabel ?></h4>
+                    <h2><?php echo $moreLabel ?></h2>
+                    <?php echo file_get_contents(__DIR__.'/svg/more_icon_small.svg'); ?>
                 </a>
             </div>
             <div class="card-slider">
@@ -30,7 +31,9 @@ function createCardContainer(string $name, string $moreLabel, string $moreLink, 
                             
                             if ($result === false)
                             {
-                                echo '<h3 class="error">There has been an error loading this line of cards.</h3>';
+                                ?>
+                                    <h3 class="error">There has been an error loading this line of cards.</h3>
+                                <?php
                             }
                             else
                             {
